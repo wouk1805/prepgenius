@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 788" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#e0ecff"/>
+    </linearGradient>
+    <linearGradient id="serverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f0e7ff"/>
+    </linearGradient>
+    <linearGradient id="geminiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="25%" stop-color="#9B72CB"/>
+      <stop offset="50%" stop-color="#D96570"/>
+      <stop offset="75%" stop-color="#F0A848"/>
+      <stop offset="100%" stop-color="#4285F4"/>
+    </linearGradient>
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#94a3b8" flood-opacity="0.18"/>
+    </filter>
+    <filter id="geminiGlow">
+      <feDropShadow dx="0" dy="1" stdDeviation="5" flood-color="#4285F4" flood-opacity="0.22"/>
+    </filter>
+    <marker id="arrowHead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="980" height="788" rx="16" fill="url(#bgGrad)" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="490" y="40" text-anchor="middle" fill="#0f172a" font-size="22" font-weight="700" letter-spacing="0.3">PrepGenius &#8212; System Architecture</text>
+
+  <!-- ================================================================== -->
+  <!-- BROWSER   y=60  h=282  bottom=342   legend bottom=328  pad=14     -->
+  <!-- ================================================================== -->
+  <rect x="30" y="60" width="920" height="282" rx="12" fill="url(#browserGrad)" stroke="#bfdbfe" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="54" y="86" fill="#2563eb" font-size="12" font-weight="700" letter-spacing="1.5">BROWSER</text>
+  <text x="900" y="86" text-anchor="end" fill="#94a3b8" font-size="11" font-style="italic">index.php (SPA) &#183; share.php</text>
+
+  <!-- Managers   y=100..158 -->
+  <rect x="55" y="100" width="172" height="58" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="141" y="125" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="700">Upload Manager</text>
+  <text x="141" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">CV &#183; JD &#183; Interviewers</text>
+
+  <rect x="245" y="100" width="172" height="58" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="331" y="125" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="700">Interview Manager</text>
+  <text x="331" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Session &#183; Voice &#183; Flow</text>
+
+  <rect x="435" y="100" width="172" height="58" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="521" y="125" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="700">Feedback Manager</text>
+  <text x="521" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Display &#183; Share &#183; Export</text>
+
+  <rect x="625" y="100" width="172" height="58" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="711" y="125" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="700">History Manager</text>
+  <text x="711" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">localStorage CRUD</text>
+
+  <!-- Horizontal bus   y=170                                              -->
+  <!-- Managers drop down to bus                                           -->
+  <line x1="141" y1="158" x2="141" y2="170" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="331" y1="158" x2="331" y2="170" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="521" y1="158" x2="521" y2="170" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="711" y1="158" x2="711" y2="170" stroke="#cbd5e1" stroke-width="1.2"/>
+  <!-- Bus extends from x=132 (API Service center) to x=823 (Renderer)    -->
+  <line x1="132" y1="170" x2="823" y2="170" stroke="#cbd5e1" stroke-width="1.2"/>
+  <!-- Bus drops down to each service box center                           -->
+  <line x1="132" y1="170" x2="132" y2="184" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="299" y1="170" x2="299" y2="184" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="466" y1="170" x2="466" y2="184" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="633" y1="170" x2="633" y2="184" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="823" y1="170" x2="823" y2="184" stroke="#cbd5e1" stroke-width="1.2"/>
+
+  <!-- Services   y=184..242 -->
+  <rect x="55" y="184" width="155" height="58" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="132" y="209" text-anchor="middle" fill="#0f766e" font-size="13" font-weight="700">API Service</text>
+  <text x="132" y="226" text-anchor="middle" fill="#94a3b8" font-size="10">HTTP &#183; Domain Facades</text>
+
+  <rect x="222" y="184" width="155" height="58" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="299" y="209" text-anchor="middle" fill="#0f766e" font-size="13" font-weight="700">TTS Service</text>
+  <text x="299" y="226" text-anchor="middle" fill="#94a3b8" font-size="10">Browser + Gemini</text>
+
+  <rect x="389" y="184" width="155" height="58" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="466" y="209" text-anchor="middle" fill="#0f766e" font-size="13" font-weight="700">Voice Service</text>
+  <text x="466" y="226" text-anchor="middle" fill="#94a3b8" font-size="10">Mic &#183; Transcription</text>
+
+  <rect x="556" y="184" width="155" height="58" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="633" y="209" text-anchor="middle" fill="#0f766e" font-size="13" font-weight="700">Video Service</text>
+  <text x="633" y="226" text-anchor="middle" fill="#94a3b8" font-size="10">Webcam &#183; Frames</text>
+
+  <rect x="723" y="184" width="200" height="58" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="823" y="209" text-anchor="middle" fill="#b45309" font-size="13" font-weight="700">Renderer + Utils</text>
+  <text x="823" y="226" text-anchor="middle" fill="#94a3b8" font-size="10">FeedbackRenderer &#183; i18n</text>
+
+  <!-- Browser APIs   y=256..290 -->
+  <rect x="55" y="256" width="656" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="383" y="278" text-anchor="middle" fill="#64748b" font-size="12" font-weight="500">Web Speech API &#183; AudioContext &#183; MediaRecorder &#183; getUserMedia</text>
+
+  <!-- Share page   y=256..290 -->
+  <rect x="723" y="256" width="200" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="823" y="276" text-anchor="middle" fill="#64748b" font-size="11" font-weight="500">share.php &#8594; ShareViewer</text>
+  <text x="823" y="287" text-anchor="middle" fill="#94a3b8" font-size="9">(standalone page)</text>
+
+  <!-- Browser legend   y=304..328   (bottom-right) -->
+  <rect x="591" y="304" width="332" height="24" rx="4" fill="#f0f6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+  <rect x="603" y="311" width="10" height="10" rx="2" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="619" y="320" text-anchor="start" fill="#475569" font-size="10">Managers</text>
+  <rect x="687" y="311" width="10" height="10" rx="2" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="703" y="320" text-anchor="start" fill="#475569" font-size="10">Services</text>
+  <rect x="771" y="311" width="10" height="10" rx="2" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <text x="787" y="320" text-anchor="start" fill="#475569" font-size="10">Rendering</text>
+  <rect x="855" y="311" width="10" height="10" rx="2" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="871" y="320" text-anchor="start" fill="#475569" font-size="10">APIs</text>
+
+  <!-- ================================================================== -->
+  <!-- SERVER background   y=358  h=414  bottom=772   pad=14             -->
+  <!-- (drawn before arrow for z-order)                                   -->
+  <!-- ================================================================== -->
+  <rect x="30" y="358" width="920" height="414" rx="12" fill="url(#serverGrad)" stroke="#d8b4fe" stroke-width="1" filter="url(#softShadow)"/>
+
+  <!-- ================================================================== -->
+  <!-- FETCH ARROW   (drawn after server bg, on top)                      -->
+  <!-- Browser bottom=342, server top=358, gap=16px                       -->
+  <!-- ================================================================== -->
+  <line x1="132" y1="336" x2="132" y2="380" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowHead)"/>
+  <rect x="148" y="340" width="114" height="20" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="205" y="354" text-anchor="middle" fill="#1d4ed8" font-size="11" font-weight="600">fetch (JSON)</text>
+
+  <!-- ================================================================== -->
+  <!-- SERVER CONTENTS   (all original y minus 34)                        -->
+  <!-- ================================================================== -->
+  <text x="54" y="384" fill="#7c3aed" font-size="12" font-weight="700" letter-spacing="1.5">SERVER</text>
+  <text x="900" y="384" text-anchor="end" fill="#94a3b8" font-size="11" font-style="italic">PHP 8.x &#183; PSR-4 Autoloading</text>
+
+  <!-- Controllers   y=400..458 -->
+  <rect x="55" y="400" width="136" height="58" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="123" y="425" text-anchor="middle" fill="#6d28d9" font-size="12" font-weight="700">Document</text>
+  <text x="123" y="442" text-anchor="middle" fill="#94a3b8" font-size="10">CV/JD upload</text>
+
+  <rect x="203" y="400" width="136" height="58" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="271" y="425" text-anchor="middle" fill="#6d28d9" font-size="12" font-weight="700">Interview</text>
+  <text x="271" y="442" text-anchor="middle" fill="#94a3b8" font-size="10">prepare &#183; start &#183; respond</text>
+
+  <rect x="351" y="400" width="136" height="58" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="419" y="425" text-anchor="middle" fill="#6d28d9" font-size="12" font-weight="700">Voice</text>
+  <text x="419" y="442" text-anchor="middle" fill="#94a3b8" font-size="10">transcribe &#183; synthesize</text>
+
+  <rect x="499" y="400" width="136" height="58" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="567" y="425" text-anchor="middle" fill="#6d28d9" font-size="12" font-weight="700">Video</text>
+  <text x="567" y="442" text-anchor="middle" fill="#94a3b8" font-size="10">analyze-frame</text>
+
+  <rect x="647" y="400" width="136" height="58" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="715" y="425" text-anchor="middle" fill="#6d28d9" font-size="12" font-weight="700">Feedback</text>
+  <text x="715" y="442" text-anchor="middle" fill="#94a3b8" font-size="10">generate report</text>
+
+  <rect x="795" y="400" width="136" height="58" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="863" y="425" text-anchor="middle" fill="#6d28d9" font-size="12" font-weight="700">Share</text>
+  <text x="863" y="442" text-anchor="middle" fill="#94a3b8" font-size="10">create &#183; get</text>
+
+  <!-- Controller bus   y=472 -->
+  <line x1="123" y1="458" x2="123" y2="472" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="271" y1="458" x2="271" y2="472" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="419" y1="458" x2="419" y2="472" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="567" y1="458" x2="567" y2="472" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="715" y1="458" x2="715" y2="472" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="863" y1="458" x2="863" y2="472" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="123" y1="472" x2="863" y2="472" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="323" y1="472" x2="323" y2="492" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="770" y1="472" x2="770" y2="492" stroke="#d8b4fe" stroke-width="1.2"/>
+
+  <!-- Services & Analyzers   y=492..600 -->
+  <rect x="55" y="492" width="530" height="108" rx="8" fill="#ffffff" stroke="#e11d48" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="320" y="518" text-anchor="middle" fill="#be123c" font-size="14" font-weight="700">Services &amp; Analyzers</text>
+  <text x="170" y="542" text-anchor="middle" fill="#475569" font-size="11">DocumentParser</text>
+  <text x="340" y="542" text-anchor="middle" fill="#475569" font-size="11">InterviewEngine</text>
+  <text x="490" y="542" text-anchor="middle" fill="#475569" font-size="11">InterviewerResearch</text>
+  <text x="170" y="564" text-anchor="middle" fill="#475569" font-size="11">FeedbackAnalyzer</text>
+  <text x="340" y="564" text-anchor="middle" fill="#475569" font-size="11">DeliveryAnalyzer</text>
+  <text x="490" y="564" text-anchor="middle" fill="#475569" font-size="11">VideoAnalyzer</text>
+
+  <!-- Prompts   y=492..600 -->
+  <rect x="605" y="492" width="326" height="108" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="768" y="518" text-anchor="middle" fill="#b45309" font-size="14" font-weight="700">Prompt Templates</text>
+  <text x="690" y="542" text-anchor="middle" fill="#475569" font-size="11">DocumentPrompts</text>
+  <text x="852" y="542" text-anchor="middle" fill="#475569" font-size="11">InterviewPrompts</text>
+  <text x="690" y="564" text-anchor="middle" fill="#475569" font-size="11">FeedbackPrompts</text>
+  <text x="852" y="564" text-anchor="middle" fill="#475569" font-size="11">ResearchPrompts</text>
+  <text x="690" y="586" text-anchor="middle" fill="#475569" font-size="11">VideoPrompts</text>
+  <text x="852" y="586" text-anchor="middle" fill="#475569" font-size="11">VoicePrompts</text>
+
+  <!-- Connection to Gemini -->
+  <line x1="320" y1="600" x2="320" y2="626" stroke="#d8b4fe" stroke-width="1.2"/>
+  <line x1="768" y1="600" x2="768" y2="626" stroke="#d8b4fe" stroke-width="1.2"/>
+
+  <!-- Gemini API   y=626..694 -->
+  <rect x="55" y="626" width="876" height="68" rx="8" fill="#ffffff" stroke="url(#geminiGrad)" stroke-width="2.5" filter="url(#geminiGlow)"/>
+  <text x="493" y="655" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="700">Google Gemini 3 API</text>
+  <text x="493" y="678" text-anchor="middle" fill="#64748b" font-size="12">Multimodal &#183; Grounding &#183; Audio &#183; Vision &#183; TTS &#183; Reasoning (Pro / Flash)</text>
+
+  <!-- External APIs   y=712..758 -->
+  <rect x="55" y="712" width="210" height="46" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="160" y="730" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600">External APIs</text>
+  <text x="160" y="746" text-anchor="middle" fill="#94a3b8" font-size="10">GeminiAPI &#183; DocumentExtractor</text>
+
+  <!-- Utils   y=712..758 -->
+  <rect x="283" y="712" width="340" height="46" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="453" y="730" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600">Utilities</text>
+  <text x="453" y="746" text-anchor="middle" fill="#94a3b8" font-size="10">Json &#183; Logger &#183; Response &#183; SpeechUtils &#183; TextUtils &#183; Uuid</text>
+
+  <!-- Server legend   y=712..758   (bottom-right, 3-col aligned grid)    -->
+  <rect x="694" y="712" width="237" height="46" rx="6" fill="#faf5ff" stroke="#d8b4fe" stroke-width="0.5"/>
+  <!-- Row 1:  y=722 -->
+  <rect x="706" y="722" width="10" height="10" rx="2" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="722" y="731" text-anchor="start" fill="#475569" font-size="10">Controllers</text>
+  <rect x="793" y="722" width="10" height="10" rx="2" fill="none" stroke="#e11d48" stroke-width="1.5"/>
+  <text x="809" y="731" text-anchor="start" fill="#475569" font-size="10">Services</text>
+  <rect x="869" y="722" width="10" height="10" rx="2" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <text x="885" y="731" text-anchor="start" fill="#475569" font-size="10">Prompts</text>
+  <!-- Row 2:  y=742   (same x as row 1 for alignment) -->
+  <rect x="706" y="742" width="10" height="10" rx="2" fill="none" stroke="url(#geminiGrad)" stroke-width="1.5"/>
+  <text x="722" y="751" text-anchor="start" fill="#475569" font-size="10">Gemini API</text>
+  <rect x="793" y="742" width="10" height="10" rx="2" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="809" y="751" text-anchor="start" fill="#475569" font-size="10">Infra</text>
+</svg>
