@@ -1,0 +1,474 @@
+/**
+ * css/pages/prepare.css
+ * Prepare page: Steps progress, Upload card, Interviewers,
+ * Ready card, Match summary, Interview type grid
+ */
+
+/* =============================================================================
+   STEPS PROGRESS
+   ============================================================================= */
+.prepare-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.steps-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.step:hover .step-num {
+    transform: scale(1.1);
+}
+
+.step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: none;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition-base);
+}
+
+.step.active .step-num,
+.step.done .step-num {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-primary);
+}
+
+.step span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.step.active span,
+.step.done span {
+    color: var(--primary);
+}
+
+.step-line {
+    width: 60px;
+    height: 2px;
+    background: var(--border-color);
+    margin: 0 0.75rem;
+    margin-bottom: 1.25rem;
+    border-radius: 1px;
+}
+
+.prep-step {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.prep-step.active {
+    display: block;
+}
+
+.step-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* =============================================================================
+   UPLOAD CARD
+   ============================================================================= */
+.upload-card {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: var(--bg-glass);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.2));
+}
+
+.upload-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.upload-card > p {
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+}
+
+.interviewer-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+    padding: 0.875rem 1rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.interviewer-hint::before {
+    content: '\1F4A1';
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    margin-top: 0.05rem;
+}
+
+.interviewer-not-found {
+    border-color: var(--warning);
+    background: var(--warning-bg);
+}
+
+.interviewer-not-found .interviewer-group-header {
+    color: var(--warning);
+}
+
+.interviewer-not-found-badge {
+    font-size: 0.7rem;
+    color: var(--warning);
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* =============================================================================
+   INTERVIEWERS
+   ============================================================================= */
+.interviewers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.interviewer-group {
+    padding: 1.25rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+.interviewer-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.interviewer-group-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+}
+
+.interviewer-remove {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    font-size: 1.25rem;
+    opacity: 0.7;
+    transition: var(--transition-fast);
+    padding: 0.25rem;
+}
+
+.interviewer-remove:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.interviewer-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.interviewer-fields .input:first-child {
+    grid-column: 1 / -1;
+}
+
+#add-interviewer-btn {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* =============================================================================
+   READY CARD & MATCH SUMMARY
+   ============================================================================= */
+.ready-card {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: var(--bg-glass);
+}
+
+.ready-icon-small {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.ready-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.ready-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.config-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.75rem;
+    color: var(--text-primary);
+}
+
+.match-summary {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    text-align: left;
+    border: 1px solid var(--border-light);
+}
+
+.match-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.match-score-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.match-score-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-primary);
+}
+
+.match-score-label {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.match-score-sublabel {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.match-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.match-section {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+}
+
+.match-section.strengths {
+    background: var(--success-bg);
+    border-left: 3px solid var(--success);
+}
+
+.match-section.gaps {
+    background: var(--warning-bg);
+    border-left: 3px solid var(--warning);
+}
+
+.match-section-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.match-section.strengths .match-section-title { color: var(--success); }
+.match-section.gaps .match-section-title { color: var(--warning); }
+
+.match-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+.match-item:last-child {
+    border-bottom: none;
+}
+
+.match-item-icon {
+    flex-shrink: 0;
+}
+
+.match-item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.match-item-area {
+    font-weight: 500;
+}
+
+.match-item-detail {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* =============================================================================
+   INTERVIEW TYPE GRID & OPTIONS
+   ============================================================================= */
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.type-card {
+    cursor: pointer;
+}
+
+.type-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.type-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 1rem 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition-base);
+    background: var(--bg-secondary);
+}
+
+.type-card:hover .type-content {
+    border-color: var(--primary-light);
+    background: var(--gradient-subtle);
+}
+
+.type-card input:checked + .type-content {
+    border-color: var(--primary);
+    background: var(--gradient-subtle);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.type-icon { font-size: 1.5rem; }
+
+.type-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.type-desc {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.style-select {
+    margin: 0.5rem 0 1rem;
+}
+
+.style-select select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.options-row {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.tts-engine-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.tts-engine-row .config-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    margin: 0;
+}
+
+.tts-engine-row select {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    max-width: 260px;
+}

@@ -1,0 +1,529 @@
+/**
+ * css/overrides/print.css
+ * Print styles for PDF export
+ */
+
+@page {
+    size: A4 portrait;
+    margin: 12mm 10mm 15mm 10mm;
+}
+
+@media print {
+    /* Force color printing */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    /* Hide non-essential UI */
+    .header,
+    .nav,
+    .footer,
+    .cookie-banner,
+    .modal-overlay,
+    .modal,
+    .bg-shapes,
+    .bg-shape,
+    .feedback-actions,
+    .question-nav-buttons,
+    .question-dots,
+    .lang-select,
+    #section-home,
+    #section-prepare,
+    #section-interview,
+    #loading-modal,
+    #print-metadata {
+        display: none !important;
+    }
+
+    /* Reset base */
+    html, body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+        color: #1f2937 !important;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    }
+
+    body::before {
+        display: none;
+    }
+
+    #app {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .section {
+        min-height: auto !important;
+        padding: 0 !important;
+    }
+
+    #section-feedback {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .feedback-container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .glass-card {
+        background: white !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+
+    /* =========================================================================
+       PRINT HEADER
+       ========================================================================= */
+    .feedback-container::before {
+        content: var(--app-print-header, "Interview Feedback Report");
+        display: block;
+        text-align: center;
+        font-size: 20pt;
+        font-weight: 700;
+        color: #2563eb;
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+        border-bottom: 2px solid #2563eb;
+    }
+
+    /* =========================================================================
+       SCORE SECTION
+       ========================================================================= */
+    .score-card {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 6px !important;
+        padding: 14px 16px !important;
+        margin-bottom: 14px !important;
+        page-break-inside: avoid;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 24px !important;
+    }
+
+    .overall-score {
+        text-align: center !important;
+        flex-shrink: 0 !important;
+    }
+
+    .score-circle {
+        width: 70px !important;
+        height: 70px !important;
+        border-width: 4px !important;
+        margin: 0 auto 6px !important;
+        background: #334155 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+    }
+
+    .score-value,
+    #score-value,
+    .score-circle span {
+        font-size: 24pt !important;
+        font-weight: 700 !important;
+        color: #ffffff !important;
+    }
+
+    .score-label {
+        font-size: 9pt !important;
+        color: #64748b !important;
+    }
+
+    .score-bars {
+        flex: 1 !important;
+        margin-top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .bar-item {
+        margin-bottom: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .bar-item > span:first-child {
+        min-width: 65px !important;
+        font-size: 10pt !important;
+        font-weight: 500 !important;
+    }
+
+    .bar {
+        flex: 1 !important;
+        background: #e2e8f0 !important;
+        height: 8px !important;
+        border-radius: 4px !important;
+        overflow: hidden !important;
+    }
+
+    .bar-fill {
+        height: 100% !important;
+        border-radius: 4px !important;
+        background: #2563eb !important;
+    }
+
+    .bar-item > span:last-child {
+        min-width: 28px !important;
+        text-align: right !important;
+        font-size: 10pt !important;
+        font-weight: 600 !important;
+    }
+
+    /* =========================================================================
+       FEEDBACK CARDS
+       ========================================================================= */
+    .feedback-card {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+        border-radius: 5px !important;
+        margin-bottom: 12px !important;
+        padding: 12px 14px !important;
+        page-break-inside: avoid;
+    }
+
+    .feedback-card h3 {
+        font-size: 12pt !important;
+        font-weight: 600 !important;
+        color: #1e293b !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        padding-bottom: 6px !important;
+        margin-bottom: 10px !important;
+        margin-top: 0 !important;
+    }
+
+    .feedback-card p,
+    .feedback-card li {
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+        color: #475569 !important;
+    }
+
+    /* =========================================================================
+       STRENGTHS
+       ========================================================================= */
+    #fb-strengths {
+        margin: 0 !important;
+        padding-left: 20px !important;
+    }
+
+    #fb-strengths li {
+        color: #059669 !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* =========================================================================
+       IMPROVEMENTS
+       ========================================================================= */
+    .improvement-item {
+        background: #f8fafc !important;
+        border-left: 3px solid !important;
+        border-radius: 3px !important;
+        margin-bottom: 8px !important;
+        padding: 10px 12px !important;
+        page-break-inside: avoid;
+    }
+
+    .improvement-item strong {
+        display: block !important;
+        font-size: 10pt !important;
+        color: #1e293b !important;
+        margin-bottom: 4px !important;
+    }
+
+    .improvement-item span {
+        font-size: 9pt !important;
+        color: #475569 !important;
+    }
+
+    /* =========================================================================
+       QUESTION FEEDBACK - Show ALL questions
+       ========================================================================= */
+    .question-feedback-header {
+        display: block !important;
+        margin-bottom: 0 !important;
+    }
+
+    .question-feedback-header h3 {
+        border-bottom: 1px solid #e2e8f0 !important;
+        padding-bottom: 6px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .question-feedback-carousel {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .question-slides {
+        display: block !important;
+        position: relative !important;
+        transform: none !important;
+    }
+
+    .question-feedback-slide {
+        display: block !important;
+        opacity: 1 !important;
+        position: relative !important;
+        flex: none !important;
+        width: 100% !important;
+        margin-bottom: 12px !important;
+        page-break-inside: avoid;
+    }
+
+    .question-feedback-item {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 5px !important;
+        padding: 12px !important;
+    }
+
+    .question-feedback-item .question {
+        font-size: 10pt !important;
+        font-weight: 600 !important;
+        color: #1e293b !important;
+        margin-bottom: 10px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+
+    .score-badge {
+        display: inline-block !important;
+        padding: 3px 10px !important;
+        border-radius: 12px !important;
+        font-size: 9pt !important;
+        font-weight: 600 !important;
+        color: white !important;
+        flex-shrink: 0 !important;
+    }
+
+    .score-badge.good { background: #10b981 !important; }
+    .score-badge.fair { background: #f59e0b !important; }
+    .score-badge.poor { background: #ef4444 !important; }
+
+    .your-answer,
+    .ideal-answer {
+        border-radius: 4px !important;
+        padding: 10px !important;
+        margin-bottom: 8px !important;
+        font-size: 9pt !important;
+    }
+
+    .your-answer {
+        background: #fef3c7 !important;
+        border-left: 3px solid #f59e0b !important;
+    }
+
+    .ideal-answer {
+        background: #d1fae5 !important;
+        border-left: 3px solid #10b981 !important;
+    }
+
+    .your-answer strong:first-child,
+    .ideal-answer strong:first-child {
+        display: block !important;
+        font-size: 8pt !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        margin-bottom: 4px !important;
+        color: #64748b !important;
+    }
+
+    .your-answer strong:not(:first-child),
+    .ideal-answer strong:not(:first-child) {
+        display: inline !important;
+        font-size: inherit !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        margin-bottom: 0 !important;
+        color: #1e293b !important;
+        font-weight: 700 !important;
+    }
+
+    /* =========================================================================
+       VISUAL PRESENCE
+       ========================================================================= */
+    #fb-visual-analysis {
+        font-size: 10pt !important;
+    }
+
+    .visual-metrics {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        margin-bottom: 10px !important;
+        justify-content: center !important;
+    }
+
+    .visual-metric {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        padding: 8px 12px !important;
+        border-radius: 4px !important;
+        font-size: 9pt !important;
+    }
+
+    .metric-label { color: #64748b !important; }
+    .metric-value { font-weight: 600 !important; }
+    .metric-value.good { color: #10b981 !important; }
+    .metric-value.needs-improvement { color: #f59e0b !important; }
+
+    /* =========================================================================
+       SPEECH ANALYSIS
+       ========================================================================= */
+    #fb-speech-summary {
+        font-size: 10pt !important;
+        margin-bottom: 10px !important;
+    }
+
+    .filler-words-section h4 {
+        font-size: 10pt !important;
+        margin-bottom: 8px !important;
+    }
+
+    .filler-word-item {
+        display: inline-block !important;
+        background: #fef3c7 !important;
+        padding: 4px 10px !important;
+        border-radius: 12px !important;
+        margin: 3px !important;
+        font-size: 9pt !important;
+    }
+
+    /* =========================================================================
+       NEXT STEPS
+       ========================================================================= */
+    #fb-nextsteps {
+        margin: 0 !important;
+        padding-left: 20px !important;
+    }
+
+    #fb-nextsteps li {
+        margin-bottom: 5px !important;
+        color: #475569 !important;
+    }
+
+    /* =========================================================================
+       TRANSCRIPT - Show in print (hidden on screen)
+       ========================================================================= */
+    .print-only-transcript,
+    #print-transcript-section {
+        display: block !important;
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        opacity: 1 !important;
+    }
+
+    .print-only-transcript .feedback-card,
+    #print-transcript-section .feedback-card {
+        display: block !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 5px !important;
+        padding: 12px 14px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .print-only-transcript .feedback-card h3,
+    #print-transcript-section .feedback-card h3 {
+        font-size: 12pt !important;
+        font-weight: 600 !important;
+        color: #1e293b !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        padding-bottom: 6px !important;
+        margin-bottom: 10px !important;
+        margin-top: 0 !important;
+    }
+
+    .print-transcript {
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 4px !important;
+        overflow: hidden !important;
+    }
+
+    .print-transcript-message {
+        padding: 10px 12px !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        font-size: 9pt !important;
+        page-break-inside: avoid;
+    }
+
+    .print-transcript-message:last-child {
+        border-bottom: none !important;
+    }
+
+    .print-transcript-message.interviewer { background: #f1f5f9 !important; }
+    .print-transcript-message.candidate { background: #ffffff !important; }
+
+    .print-transcript-sender {
+        font-weight: 600 !important;
+        color: #334155 !important;
+        margin-bottom: 4px !important;
+        font-size: 9pt !important;
+    }
+
+    .print-transcript-content {
+        color: #475569 !important;
+        line-height: 1.5 !important;
+        font-size: 9pt !important;
+    }
+
+    /* =========================================================================
+       PRINT FOOTER
+       ========================================================================= */
+    .feedback-container::after {
+        display: none !important;
+    }
+
+    body::after {
+        content: var(--app-print-footer, "AI-Powered Interview Preparation");
+        display: block;
+        text-align: center;
+        font-size: 9pt;
+        color: #94a3b8;
+        padding-top: 14px;
+        margin-top: 18px;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    /* =========================================================================
+       PAGE BREAK CONTROLS
+       ========================================================================= */
+    h3 {
+        page-break-after: avoid !important;
+    }
+
+    .feedback-card,
+    .improvement-item,
+    .question-feedback-slide {
+        page-break-inside: avoid !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
